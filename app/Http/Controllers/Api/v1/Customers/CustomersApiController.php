@@ -1,21 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Api\Packages;
+namespace App\Http\Controllers\Api\v1\Customers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class PackagesController extends Controller
+class CustomersApiController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
-        //
+        return "Index z customers ";
     }
 
     /**

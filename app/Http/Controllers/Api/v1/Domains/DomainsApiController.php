@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Api\Domains;
+namespace App\Http\Controllers\Api\v1\Domains;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class DomainsController extends Controller
+class DomainsApiController extends Controller
 {
     /**
      * Display a listing of the resource.

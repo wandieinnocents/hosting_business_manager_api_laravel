@@ -23,7 +23,7 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 - Laravel swagger documentation
 
 ## Creating controllers
-php artisan make:controller Api/Packages/PackagesController -r
+php artisan make:controller Api/v1/Packages/PackagesApiController -r
 
 ## Creating Models
 php artisan make:model Package -m
