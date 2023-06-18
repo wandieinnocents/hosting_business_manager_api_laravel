@@ -26,4 +26,4 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 php artisan make:controller Api/Packages/PackagesController -r
 
 ## Creating Models
-php artisan make:model Pakage -m
+php artisan make:model Package -m
