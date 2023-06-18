@@ -32,7 +32,7 @@ class CustomersApiController extends Controller
         else {
             //response
             return [
-                "status" => 404,
+                "status" => "Error",
                 "message" => "Oops!, No Customers Found in Database ",
 
             ];
@@ -83,7 +83,7 @@ class CustomersApiController extends Controller
 
         // response
         return [
-            "status" => "Success",
+            "status" => 200,
             "message" => "customer Added successfully",
             "data" => $customer
         ];
@@ -98,7 +98,28 @@ class CustomersApiController extends Controller
      */
     public function show($id)
     {
-        //
+       // find Customer id
+       if(Customer::where("id", $id)->exists()){
+        $customer = Customer::find($id);
+
+        // return response
+        return [
+            "status" => 200,
+            "message" => "Customer Retrieved successfully",
+            "data" =>$customer
+        ];
+    }
+
+     // if no record
+     else {
+
+        return [
+            "status" => 404,
+            "message" => "Oops!, No Customer Found ",
+
+        ];
+
+    }
     }
 
     /**
@@ -121,7 +142,7 @@ class CustomersApiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**

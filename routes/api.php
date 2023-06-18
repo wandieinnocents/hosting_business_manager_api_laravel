@@ -30,6 +30,8 @@ Route::post('/customers/create', [CustomersApiController::class, 'store']);
 // all customers
 Route::get('/customers', [CustomersApiController::class, 'index']);
 // single customer
+Route::get('/customers/{id}', [CustomersApiController::class, 'show']);
+
 
 
 
