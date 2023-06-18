@@ -17,6 +17,5 @@ class Customer extends Model
         'organization'
     ];
 
-    
 
 }

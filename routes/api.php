@@ -25,6 +25,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['prefix'=> "v1"], function(){
 
 // customers api routes
+// add customers
+Route::post('/customers/create', [CustomersApiController::class, 'store']);
 // all customers
 Route::get('/customers', [CustomersApiController::class, 'index']);
 // single customer

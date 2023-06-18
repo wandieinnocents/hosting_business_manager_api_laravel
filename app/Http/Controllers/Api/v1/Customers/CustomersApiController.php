@@ -15,7 +15,29 @@ class CustomersApiController extends Controller
      */
     public function index()
     {
-        return "Index z customers ";
+        if(Customer::count() > 0){
+            $customers = Customer::all();
+            $count_customers = Customer::count();
+
+            // return
+            return [
+                "status" => "Success",
+                "Number of Customers" =>   $count_customers,
+                "message" => "Customers Retrieved successfully",
+                "data" => $customers
+            ];
+        }
+
+        // if no record
+        else {
+            //response
+            return [
+                "status" => 404,
+                "message" => "Oops!, No Customers Found in Database ",
+
+            ];
+
+        }
     }
 
     /**
@@ -40,8 +62,8 @@ class CustomersApiController extends Controller
         $validatedData = $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
+            'email' => 'required|email|unique:customers',
+            'phone' => 'required|unique:customers',
             'address' => 'required',
             'organization' => 'required',
 
@@ -61,7 +83,7 @@ class CustomersApiController extends Controller
 
         // response
         return [
-            "status" => 200,
+            "status" => "Success",
             "message" => "customer Added successfully",
             "data" => $customer
         ];
