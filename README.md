@@ -6,7 +6,8 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 ## Features
 - Customer  manager (Partial payment and full payments)
 - Manage orders
-- Track sales and expenditures
+- Track hosting accounts 
+- Expenses
 - Track expiry / renewal dates
 - Debtors/Credit clients
 - More
