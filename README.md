@@ -4,13 +4,13 @@ An api that can enable hosting businesses to manage their in-house information a
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
 ## Features
-- Customers
+- Customers (Done)
+- Packages
 - Reciepts
 - Domain management
 - Expenses
 - Users (Admin, manager)
 - Dashboard statistics
-- Packages
 - Hosting service providers
 - Hosting account sales
 - Orders
