@@ -6,10 +6,24 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 ## Features
 - Customers
 - Reciepts
+- Domain management
 - Expenses
+- Users (Admin, manager)
 - Dashboard statistics
 - Packages
+- Hosting service providers
 - Hosting account sales
 - Orders
 - Debtors
+- Refunds
+- Reports
 - More
+
+## Tools and Practices
+- Laravel swagger documentation
+
+## Creating controllers
+php artisan make:controller Api/Packages/PackagesController -r
+
+## Creating Models
+php artisan make:model Pakage -m
