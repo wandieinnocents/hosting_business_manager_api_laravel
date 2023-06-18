@@ -25,6 +25,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['prefix'=> "v1"], function(){
 
 // customers api routes
+// ..................................................................
+
 // add customers
 Route::post('/customers/create', [CustomersApiController::class, 'store']);
 // all customers
@@ -33,6 +35,9 @@ Route::get('/customers', [CustomersApiController::class, 'index']);
 Route::get('/customers/{id}', [CustomersApiController::class, 'show']);
 // update customer
 Route::put('/customers/{id}', [CustomersApiController::class, 'update']);
+// delete customer
+Route::delete('/customers/{id}', [CustomersApiController::class, 'destroy']);
+
 
 
 

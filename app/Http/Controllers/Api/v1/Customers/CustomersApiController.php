@@ -203,8 +203,6 @@ class CustomersApiController extends Controller
             return [
                 "status" => 404,
                 "message" => "Oops!, No Customer Found to Delete "
-
-
             ];
 
         }
