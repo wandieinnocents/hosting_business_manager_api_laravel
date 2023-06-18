@@ -32,6 +32,7 @@ Route::get('/customers', [CustomersApiController::class, 'index']);
 
 
 
+
 });
 // End Prefix - v1 : [version routes]
 

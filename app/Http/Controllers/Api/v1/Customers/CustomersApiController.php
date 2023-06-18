@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\v1\Customers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Customer;
 
 class CustomersApiController extends Controller
 {
@@ -35,7 +36,36 @@ class CustomersApiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // validate data fields
+        $validatedData = $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+            'organization' => 'required',
+
+        ]);
+
+        // create customer
+        $customer = new Customer();
+        $customer->first_name    = $request->first_name;
+        $customer->last_name     = $request->last_name;
+        $customer->email         = $request->email;
+        $customer->phone         = $request->phone;
+        $customer->address       = $request->address;
+        $customer->organization  = $request->organization;
+
+        // save customer
+        $customer->save();
+
+        // response
+        return [
+            "status" => 200,
+            "message" => "customer Added successfully",
+            "data" => $customer
+        ];
+
     }
 
     /**
