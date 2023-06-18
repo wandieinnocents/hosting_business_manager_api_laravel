@@ -31,6 +31,9 @@ Route::post('/customers/create', [CustomersApiController::class, 'store']);
 Route::get('/customers', [CustomersApiController::class, 'index']);
 // single customer
 Route::get('/customers/{id}', [CustomersApiController::class, 'show']);
+// update customer
+Route::put('/customers/{id}', [CustomersApiController::class, 'update']);
+
 
 
 

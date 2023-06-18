@@ -143,6 +143,38 @@ class CustomersApiController extends Controller
     public function update(Request $request, $id)
     {
 
+        if(Customer::where("id", $id)->exists()){
+            $customer   = Customer::find($id);
+            $customer->first_name = !empty($request->first_name)? $request->first_name: $customer->first_name;
+            $customer->last_name = !empty($request->last_name)? $request->last_name: $customer->last_name;
+            $customer->email = !empty($request->email)? $request->email: $customer->email;
+            $customer->phone = !empty($request->phone)? $request->phone: $customer->phone;
+            $customer->address = !empty($request->address)? $request->address: $customer->address;
+            $customer->organization = !empty($request->organization)? $request->organization: $customer->organization;
+
+            // save Customer
+            $customer->save();
+
+            // response for success
+            return [
+                "status" => 200,
+                "message" => "Customer updated successfully",
+                "data" => $customer
+
+            ];
+        }
+        // if no record by id found
+        else {
+
+            // response for success
+            return [
+                "status" => 404,
+                "message" => "Oops!, No Customer Found to update ",
+
+            ];
+
+        }
+
     }
 
     /**
@@ -153,6 +185,28 @@ class CustomersApiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // find id
+        if(Customer::where("id", $id)->exists()){
+            $customer = Customer::find($id);
+            $customer->delete();
+            // response for success
+            return [
+                "status" => 200,
+                "message" => "Customer Deleted successfully",
+                "data" => $customer,
+            ];
+        }
+
+        // if no record
+        else {
+            // response for success
+            return [
+                "status" => 404,
+                "message" => "Oops!, No Customer Found to Delete "
+
+
+            ];
+
+        }
     }
 }
