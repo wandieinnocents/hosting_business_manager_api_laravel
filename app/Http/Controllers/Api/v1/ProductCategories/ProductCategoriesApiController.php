@@ -135,7 +135,33 @@ class ProductCategoriesApiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // find id
+        if(ProductCategory::where("id", $id)->exists()){
+
+            $product_category = ProductCategory::find($id);
+            $product_category->name = $request->name;
+            $product_category->description = $request->description;
+            $product_category->save();
+
+            // response for success
+             return [
+                "status" => 200,
+                "message" => "Product Category updated successfully",
+                "data" => $product_category
+
+            ];
+        }
+        // if no record by id found
+        else {
+
+            // response for success
+            return [
+                "status" => 404,
+                "message" => "Oops!, No Product Category Found to update ",
+
+            ];
+
+        }
     }
 
     /**
