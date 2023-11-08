@@ -33,7 +33,7 @@ class ProductCategoriesApiController extends Controller
             //response
             return [
                 "status" => "Error",
-                "message" => "Oops!, No Customers Found in Database ",
+                "message" => "Oops!, No Product Category Found in Database ",
 
             ];
 
@@ -98,7 +98,7 @@ class ProductCategoriesApiController extends Controller
         // return response
         return [
             "status" => 200,
-            "message" => "ProductCategory Retrieved successfully",
+            "message" => "Product Category Retrieved successfully",
             "data" =>$product_category
         ];
     }
@@ -108,7 +108,7 @@ class ProductCategoriesApiController extends Controller
 
         return [
             "status" => 404,
-            "message" => "Oops!, No ProductCategory Found ",
+            "message" => "Oops!, No Product Category Found ",
 
         ];
 
@@ -172,6 +172,27 @@ class ProductCategoriesApiController extends Controller
      */
     public function destroy($id)
     {
-        //
+         // find id
+         if(ProductCategory::where("id", $id)->exists()){
+            $product_category = ProductCategory::find($id);
+            $product_category->delete();
+
+            // response for success
+            return [
+                "status" => 200,
+                "message" => "ProductCategory Deleted successfully",
+                "data" => $product_category,
+            ];
+        }
+
+        // if no record
+        else {
+            // response for success
+            return [
+                "status" => 404,
+                "message" => "Oops!, No Product Category Found to Delete "
+            ];
+
+        }
     }
 }
