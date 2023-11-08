@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Api\v1\Customers\CustomersApiController;
+use App\Http\Controllers\Api\v1\ProductCategories\ProductCategoriesApiController;
 
 
 /*
@@ -37,6 +38,21 @@ Route::get('/customers/{id}', [CustomersApiController::class, 'show']);
 Route::put('/customers/{id}', [CustomersApiController::class, 'update']);
 // delete customer
 Route::delete('/customers/{id}', [CustomersApiController::class, 'destroy']);
+
+
+// product category
+// ..................................................................
+
+// add product category
+Route::post('/product_categories/create', [ProductCategoriesApiController::class, 'store']);
+// all product category
+Route::get('/product_categories', [ProductCategoriesApiController::class, 'index']);
+// single product category
+Route::get('/product_categories/{id}', [ProductCategoriesApiController::class, 'show']);
+// update product category
+Route::put('/product_categories/{id}', [ProductCategoriesApiController::class, 'update']);
+// delete product category
+Route::delete('/product_categories/{id}', [ProductCategoriesApiController::class, 'destroy']);
 
 
 

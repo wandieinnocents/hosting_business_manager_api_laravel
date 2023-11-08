@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\v1\ProductCategories;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\ProductCategory;
 
 class ProductCategoriesApiController extends Controller
 {
@@ -14,7 +15,29 @@ class ProductCategoriesApiController extends Controller
      */
     public function index()
     {
-        dd("Product categories index");
+        if(ProductCategory::count() > 0){
+            $product_categories = ProductCategory::all();
+            $count_product_categories = ProductCategory::count();
+
+            // return
+            return [
+                "status" => "Success",
+                "Number of Product Categories" =>   $count_product_categories,
+                "message" => "Product Categories Retrieved successfully",
+                "data" => $product_categories
+            ];
+        }
+
+        // if no record
+        else {
+            //response
+            return [
+                "status" => "Error",
+                "message" => "Oops!, No Customers Found in Database ",
+
+            ];
+
+        }
     }
 
     /**
@@ -35,6 +58,8 @@ class ProductCategoriesApiController extends Controller
      */
     public function store(Request $request)
     {
+        // dd("adfafaf");
+
         // validate data fields
         $validatedData = $request->validate([
             'name' => 'required',
@@ -43,18 +68,18 @@ class ProductCategoriesApiController extends Controller
         ]);
 
         // create customer
-        $customer = new Customer();
-        $customer->name    = $request->name;
-        $customer->description     = $request->description;
+        $product_categories = new ProductCategory();
+        $product_categories->name    = $request->name;
+        $product_categories->description     = $request->description;
 
-        // save customer
-        $customer->save();
+        // save product_categories
+        $product_categories->save();
 
         // response
         return [
             "status" => 200,
-            "message" => "customer Added successfully",
-            "data" => $customer
+            "message" => "Product Category Added successfully",
+            "data" => $product_categories
         ];
     }
 
@@ -66,7 +91,28 @@ class ProductCategoriesApiController extends Controller
      */
     public function show($id)
     {
-        //
+       // find product_category id
+       if(ProductCategory::where("id", $id)->exists()){
+        $product_category = ProductCategory::find($id);
+
+        // return response
+        return [
+            "status" => 200,
+            "message" => "ProductCategory Retrieved successfully",
+            "data" =>$product_category
+        ];
+    }
+
+     // if no record
+     else {
+
+        return [
+            "status" => 404,
+            "message" => "Oops!, No ProductCategory Found ",
+
+        ];
+
+    }
     }
 
     /**
