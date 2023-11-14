@@ -13,8 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('packages', function (Blueprint $table) {
+        Schema::create('brands', function (Blueprint $table) {
             $table->id();
+            $table->string('brand_code', 255);
+			$table->date('brand_register_date');
+			$table->enum('brand_status', array('active', 'disabled'));
+			$table->string('brand_image');
+			$table->string('brand_description', 255);
             $table->timestamps();
         });
     }
@@ -26,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('packages');
+        Schema::dropIfExists('brands');
     }
 };

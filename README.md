@@ -3,21 +3,39 @@
 An api that can enable hosting businesses to manage their in-house information and tracking , periodicaly.
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Features
-- Customers (Done)
-- Packages
-- Reciepts
-- Domain management
+## Materials
+- POS sale section : https://www.youtube.com/watch?v=2OXAZasseaI&list=PLIeKz8l1eVaP4A4rN129dUqKhBAeBvN3z
+
+
+
+
+## Features (APIs)
+## Active Modules
+- Branches
+- Products
+  - Add Brand
+  - Manage Brand
+  - Add Unit
+  - Manage Units
+  - Add parent Category
+  - Manage Parent Categories
+  - Add Category
+  - Manage Categories
+  - Add Product
+  - Manage Products
+- Sales
+- Clients
+- Suppliers
+
+## Pending Modules
 - Expenses
-- Users (Admin, manager)
-- Dashboard statistics
-- Hosting service providers
-- Hosting account sales
-- Orders
 - Debtors
-- Refunds
+- Quotations
 - Reports
-- More
+- Purchases
+- Calculator
+
+- POS Module (supermarkets Screen kind)
 
 ## Tools and Practices
 - Laravel swagger documentation

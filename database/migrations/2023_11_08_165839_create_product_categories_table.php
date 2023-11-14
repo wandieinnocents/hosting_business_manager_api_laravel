@@ -15,8 +15,12 @@ return new class extends Migration
     {
         Schema::create('product_categories', function (Blueprint $table) {
             $table->id();
-            $table->text('name');
-            $table->text('description')->nullable();
+            $table->bigInteger('parent_product_category_id');
+            $table->string('product_category_code', 255);
+			$table->text('product_category_name', 255);
+			$table->text('product_category_description', 255)->nullable();
+			$table->enum('product_category_status', array('active', 'disabled'));
+			$table->text('image');
             $table->timestamps();
         });
     }

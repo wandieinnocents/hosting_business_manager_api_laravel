@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Api\v1\Customers\CustomersApiController;
 use App\Http\Controllers\Api\v1\ProductCategories\ProductCategoriesApiController;
+use App\Http\Controllers\Api\v1\ParentProductCategories\ParentProductCategoriesApiController;
 
 
 /*
@@ -39,6 +40,19 @@ Route::put('/customers/{id}', [CustomersApiController::class, 'update']);
 // delete customer
 Route::delete('/customers/{id}', [CustomersApiController::class, 'destroy']);
 
+// parent product category
+// ..................................................................
+
+// add parent product category
+Route::post('/parent_product_categories/create', [ParentProductCategoriesApiController::class, 'store']);
+// all parent product category
+Route::get('/parent_product_categories', [ParentProductCategoriesApiController::class, 'index']);
+// single parent product category
+Route::get('/parent_product_categories/{id}', [ParentProductCategoriesApiController::class, 'show']);
+// update parent product category
+Route::put('/parent_product_categories/{id}', [ParentProductCategoriesApiController::class, 'update']);
+// delete parent product category
+Route::delete('/parent_product_categories/{id}', [ParentProductCategoriesApiController::class, 'destroy']);
 
 // product category
 // ..................................................................

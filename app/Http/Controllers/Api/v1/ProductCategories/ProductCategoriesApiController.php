@@ -16,7 +16,7 @@ class ProductCategoriesApiController extends Controller
     public function index()
     {
         if(ProductCategory::count() > 0){
-            $product_categories = ProductCategory::all();
+            $product_categories = ProductCategory::orderBy('id', 'desc')->get();;
             $count_product_categories = ProductCategory::count();
 
             // return
