@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('parent_product_category_code', 255)->nullable();
 			$table->string('parent_product_category_name', 255);
 			$table->text('parent_product_category_description')->nullable();
-			$table->enum('parent_product_category_status', array('active', 'disabled'))->nullable();
+			$table->enum('parent_product_category_status', array('active', 'disabled'))->default('active')->nullable();
             $table->timestamps();
         });
     }
