@@ -8,6 +8,7 @@ use App\Models\ParentProductCategory;
 
 class ParentProductCategoriesApiController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *

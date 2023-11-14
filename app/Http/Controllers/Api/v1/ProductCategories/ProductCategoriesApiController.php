@@ -62,24 +62,50 @@ class ProductCategoriesApiController extends Controller
 
         // validate data fields
         $validatedData = $request->validate([
-            'name' => 'required',
-            'description' => 'nullable',
+            'parent_product_category_id' => 'required',
+            'product_category_code' => 'nullable',
+            'product_category_name' => 'required',
+            'product_category_description' => 'nullable',
+            'product_category_status' => 'nullable',
+            'product_category_image' => 'nullable',
 
         ]);
 
         // create customer
-        $product_categories = new ProductCategory();
-        $product_categories->name    = $request->name;
-        $product_categories->description     = $request->description;
+        $product_category = new ProductCategory();
+        $product_category->parent_product_category_id    = $request->parent_product_category_id;
+        // $product_category->product_category_code    = $request->product_category_code;
+        $product_category->product_category_name    = $request->product_category_name;
+        $product_category->product_category_description    = $request->product_category_description;
+        $product_category->product_category_status    = $request->product_category_status;
+
+        // image
+
+         // product_category_image
+         if($request->hasfile('product_category_image')){
+            $file               = $request->file('product_category_image');
+            $extension          = $file->getClientOriginalExtension();  //get image extension
+            $filename           = time() . '.' .$extension;
+            $file->move('uploads/product_category_images/',$filename);
+            $product_category->product_category_image   = url('uploads' . '/product_category_images/'  . $filename);
+        }
+
 
         // save product_categories
-        $product_categories->save();
+        $product_category->save();
+
+          // add a unique id
+        $product_category_unique_id = $product_category->id;
+        $product_category_code = ProductCategory::find($product_category_unique_id);
+        $product_category_code->product_category_code = 'PCAT-'.$product_category_unique_id;
+        $product_category_code->save();
+
 
         // response
         return [
             "status" => 200,
             "message" => "Product Category Added successfully",
-            "data" => $product_categories
+            "data" => $product_category
         ];
     }
 
@@ -133,15 +159,40 @@ class ProductCategoriesApiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, $id)
     {
         // find id
         if(ProductCategory::where("id", $id)->exists()){
 
             $product_category = ProductCategory::find($id);
-            $product_category->name = $request->name;
-            $product_category->description = $request->description;
+            $product_category->parent_product_category_id    = $request->parent_product_category_id;
+            // $product_category->product_category_code    = $request->product_category_code;
+            $product_category->product_category_name    = $request->product_category_name;
+            $product_category->product_category_description    = $request->product_category_description;
+            $product_category->product_category_status    = $request->product_category_status;
+
+            // image
+
+             // product_category_image
+             if($request->hasfile('product_category_image')){
+                $file               = $request->file('product_category_image');
+                $extension          = $file->getClientOriginalExtension();  //get image extension
+                $filename           = time() . '.' .$extension;
+                $file->move('uploads/product_category_images/',$filename);
+                $product_category->product_category_image   = url('uploads' . '/product_category_images/'  . $filename);
+            }
+
+
+            // save product_categories
             $product_category->save();
+
+              // add a unique id
+            $product_category_unique_id = $product_category->id;
+            $product_category_code = ProductCategory::find($product_category_unique_id);
+            $product_category_code->product_category_code = 'PCAT-'.$product_category_unique_id;
+            $product_category_code->save();
+
 
             // response for success
              return [
@@ -151,6 +202,7 @@ class ProductCategoriesApiController extends Controller
 
             ];
         }
+
         // if no record by id found
         else {
 
