@@ -15,4 +15,7 @@ class ParentProductCategory extends Model
         'parent_product_category_status',
     ];
 
+
+    // relationship
+
 }

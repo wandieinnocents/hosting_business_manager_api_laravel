@@ -23,4 +23,5 @@ class ProductCategory extends Model
 
     // relationship
 
+
 }
