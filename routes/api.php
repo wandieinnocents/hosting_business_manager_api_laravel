@@ -54,6 +54,7 @@ Route::put('/parent_product_categories/{id}', [ParentProductCategoriesApiControl
 // delete parent product category
 Route::delete('/parent_product_categories/{id}', [ParentProductCategoriesApiController::class, 'destroy']);
 
+
 // product category
 // ..................................................................
 

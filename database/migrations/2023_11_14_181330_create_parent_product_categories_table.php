@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('parent_product_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('parent_product_category_code', 255);
+            $table->string('parent_product_category_code', 255)->nullable();
 			$table->string('parent_product_category_name', 255);
-			$table->text('parent_product_category_description');
-			$table->enum('parent_product_category_status', array('active', 'disabled'));
+			$table->text('parent_product_category_description')->nullable();
+			$table->enum('parent_product_category_status', array('active', 'disabled'))->nullable();
             $table->timestamps();
         });
     }
