@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->date('sale_date');
 			$table->string('sale_ref_number', 255);
-			$table->bigInteger('customer_id');
-			$table->bigInteger('branch_id');
-			$table->bigInteger('product_id');
+			$table->unsignedBigInteger('customer_id');
+			$table->unsignedBigInteger('branch_id');
+			$table->unsignedBigInteger('product_id');
 			$table->string('sale_quantity');
 			$table->string('sub_total', 255);
 			$table->string('grand_total', 255);
@@ -27,6 +27,9 @@ return new class extends Migration
 			$table->enum('sale_status', array('pending', 'processing', 'completed'));
 			$table->text('sale_notes');
 			$table->enum('sale_payment_method', array('bank_transfer', 'mobile_money', 'credit_card', 'cash'));
+            $table->foreign('customer_id')->references('id')->on('customers');
+            $table->foreign('branch_id')->references('id')->on('branches');
+            $table->foreign('product_id')->references('id')->on('products');
             $table->timestamps();
         });
     }

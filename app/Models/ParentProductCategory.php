@@ -18,6 +18,7 @@ class ParentProductCategory extends Model
 
 
     // relationship btn parent category and child category
+    // a parent product category has many product categories
      public function product_categories()
      {
          return $this->hasMany(ProductCategory::class);

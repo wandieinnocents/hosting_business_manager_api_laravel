@@ -15,18 +15,6 @@ class ProductCategoriesApiController extends Controller
      */
     public function index()
     {
-        // Fetch all products with their category
-        // $products = Product::with('category')->get();
-
-        // // Access the category of a product
-        // foreach ($products as $product) {
-        //     echo $product->name . ' belongs to category: ' . $product->category->name;
-        // }
-
-        // // Fetch all products for a specific category
-        // $category = Category::find(1);
-        // $categoryProducts = $category->products;
-
 
         if(ProductCategory::count() > 0){
             $product_categories = ProductCategory::orderBy('id', 'desc')->get();;
