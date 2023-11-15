@@ -27,6 +27,9 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 - Clients
 - Suppliers
 
+
+
+
 ## Pending Modules
 - Expenses
 - Debtors

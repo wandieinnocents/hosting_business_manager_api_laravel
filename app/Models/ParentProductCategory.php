@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\ProductCategory;
 
 class ParentProductCategory extends Model
 {
@@ -16,6 +17,13 @@ class ParentProductCategory extends Model
     ];
 
 
-    // relationship
+    // relationship btn parent category and child category
+     public function product_categories()
+     {
+         return $this->hasMany(ProductCategory::class);
+     }
+
+
+
 
 }

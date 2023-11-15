@@ -21,7 +21,12 @@ class ProductCategory extends Model
     ];
 
 
-    // relationship
+    // relationship btn  child category and  parent category
+    public function parent_category(){
+
+        return $this->belongsTo(ParentProductCategory::class);
+
+    }
 
 
 }

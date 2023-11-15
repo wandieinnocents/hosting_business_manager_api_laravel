@@ -15,12 +15,13 @@ return new class extends Migration
     {
         Schema::create('product_categories', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('parent_product_category_id');
+            $table->unsignedBigInteger('parent_product_category_id');
             $table->string('product_category_code', 255)->nullable();
 			$table->text('product_category_name', 255);
 			$table->text('product_category_description', 255)->nullable();
 			$table->enum('product_category_status', array('active', 'disabled'))->nullable();
 			$table->text('product_category_image')->nullable();
+            $table->foreign('parent_product_category_id')->references('id')->on('parent_product_categories');
             $table->timestamps();
 
         });
