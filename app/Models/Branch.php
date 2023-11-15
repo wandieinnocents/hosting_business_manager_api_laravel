@@ -16,7 +16,6 @@ class Branch extends Model
         'branch_address',
     ];
 
-    // relationship btn branch and product
     // branch has many products
     public function products()
     {

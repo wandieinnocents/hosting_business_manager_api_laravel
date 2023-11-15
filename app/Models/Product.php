@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Branch;
+use App\Models\Brand;
 
 class Product extends Model
 {
@@ -41,6 +42,12 @@ class Product extends Model
     {
         return $this->belongsTo(Unit::class);
     }
+
+     // product belongs to a brand
+     public function brand()
+     {
+         return $this->belongsTo(Brand::class);
+     }
 
 
 

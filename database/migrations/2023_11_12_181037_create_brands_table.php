@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('brand_code', 255);
 			$table->date('brand_register_date');
 			$table->enum('brand_status', array('active', 'disabled'));
-			$table->string('brand_image');
-			$table->string('brand_description', 255);
+			$table->text('brand_image');
+			$table->text('brand_description', 255);
             $table->timestamps();
         });
     }
