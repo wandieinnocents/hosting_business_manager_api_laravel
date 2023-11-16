@@ -8,6 +8,9 @@ use App\Models\Branch;
 use App\Models\Brand;
 use App\Models\ParentProductCategory;
 use App\Models\ProductCategory;
+use App\Models\Supplier;
+
+
 
 
 class Product extends Model
@@ -63,6 +66,12 @@ class Product extends Model
         {
             return $this->belongsTo(ProductCategory::class);
         }
+
+         // product belongs to a  supplier
+         public function supplier()
+         {
+             return $this->belongsTo(Supplier::class);
+         }
 
 
 
