@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Branch;
 use App\Models\Brand;
+use App\Models\ParentProductCategory;
+use App\Models\ProductCategory;
+
 
 class Product extends Model
 {
@@ -48,6 +51,18 @@ class Product extends Model
      {
          return $this->belongsTo(Brand::class);
      }
+
+      // product belongs to a parent product category
+      public function parent_product_category()
+      {
+          return $this->belongsTo(ParentProductCategory::class);
+      }
+
+        // product belongs to a  product category
+        public function product_category()
+        {
+            return $this->belongsTo(ProductCategory::class);
+        }
 
 
 

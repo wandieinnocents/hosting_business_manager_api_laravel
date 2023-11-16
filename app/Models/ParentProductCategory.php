@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\ProductCategory;
+use App\Models\Product;
 
 class ParentProductCategory extends Model
 {
@@ -17,12 +18,18 @@ class ParentProductCategory extends Model
     ];
 
 
-    // relationship btn parent category and child category
     // a parent product category has many product categories
      public function product_categories()
      {
          return $this->hasMany(ProductCategory::class);
      }
+
+      // a parent product category has many products
+      public function products()
+      {
+          return $this->hasMany(Product::class);
+      }
+
 
 
 
