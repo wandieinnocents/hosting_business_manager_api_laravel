@@ -12,20 +12,22 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 ## Features (APIs)
 ## Active Modules
 - Branches
-- Products
+- Brands
   - Add Brand
   - Manage Brand
+- Products
   - Add Unit
   - Manage Units
   - Add parent Category
   - Manage Parent Categories
   - Add Category
-  - Manage Categories
+  - Manage  Categories
   - Add Product
   - Manage Products
-- Sales
 - Clients
 - Suppliers
+- Sales ( should be done later , after expenses, debtors, purchases, calculator)
+
 
 
 

@@ -9,6 +9,8 @@ use App\Models\Brand;
 use App\Models\ParentProductCategory;
 use App\Models\ProductCategory;
 use App\Models\Supplier;
+use App\Models\Sale;
+
 
 
 
@@ -72,6 +74,12 @@ class Product extends Model
          {
              return $this->belongsTo(Supplier::class);
          }
+
+          // product has many sales
+        public function sales()
+        {
+            return $this->belongsTo(Sale::class);
+        }
 
 
 

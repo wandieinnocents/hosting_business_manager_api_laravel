@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Product;
+use App\Models\Sale;
+
 
 class Branch extends Model
 {
@@ -21,6 +23,13 @@ class Branch extends Model
     {
         return $this->hasMany(Product::class);
     }
+
+     // branch has many sales
+     public function sales()
+     {
+         return $this->belongsTo(Sale::class);
+     }
+
 
 
 

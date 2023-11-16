@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Sale;
 
 class Customer extends Model
 {
@@ -16,6 +17,13 @@ class Customer extends Model
         'address',
         'organization'
     ];
+
+      // customer has many sales
+      public function sales()
+      {
+          return $this->belongsTo(Sale::class);
+      }
+
 
 
 }
