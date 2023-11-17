@@ -8,6 +8,8 @@ use App\Http\Controllers\Api\v1\ProductCategories\ProductCategoriesApiController
 use App\Http\Controllers\Api\v1\ParentProductCategories\ParentProductCategoriesApiController;
 use App\Http\Controllers\Api\v1\Branches\BranchesApiController;
 use App\Http\Controllers\Api\v1\Brands\BrandsApiController;
+use App\Http\Controllers\Api\v1\Units\UnitsApiController;
+
 
 
 
@@ -113,6 +115,18 @@ Route::get('/brands/{id}', [BrandsApiController::class, 'show']);
 Route::put('/brands/{id}', [BrandsApiController::class, 'update']);
 // delete brand
 Route::delete('/brands/{id}', [BrandsApiController::class, 'destroy']);
+
+// add unit 
+Route::post('/units/create', [UnitsApiController::class, 'store']);
+// all unit 
+Route::get('/units', [UnitsApiController::class, 'index']);
+// single unit  
+Route::get('/units/{id}', [UnitsApiController::class, 'show']);
+// update unit  
+Route::put('/units/{id}', [UnitsApiController::class, 'update']);
+// delete unit  
+Route::delete('/units/{id}', [UnitsApiController::class, 'destroy']);
+
 
 
 

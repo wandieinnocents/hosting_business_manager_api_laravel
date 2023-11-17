@@ -15,6 +15,7 @@ class BranchesApiController extends Controller
      */
     public function index()
     {
+
         if(Branch::count() > 0){
             $branches = Branch::all();
             $count_branches = Branch::count();
