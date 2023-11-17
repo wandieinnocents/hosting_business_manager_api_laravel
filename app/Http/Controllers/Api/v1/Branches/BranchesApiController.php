@@ -149,6 +149,12 @@ class BranchesApiController extends Controller
             // save branch
             $branch->save();
 
+              // generate branch code
+            $branch_unique_id = $branch->id;
+            $branch_code = Branch::find($branch_unique_id);
+            $branch_code->branch_code = 'BC-'.$branch_unique_id;
+            $branch_code->save();
+
             // response for success
             return [
                 "status" => 200,

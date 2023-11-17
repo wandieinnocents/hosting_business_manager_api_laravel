@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\v1\Customers\CustomersApiController;
 use App\Http\Controllers\Api\v1\ProductCategories\ProductCategoriesApiController;
 use App\Http\Controllers\Api\v1\ParentProductCategories\ParentProductCategoriesApiController;
 use App\Http\Controllers\Api\v1\Branches\BranchesApiController;
+use App\Http\Controllers\Api\v1\Brands\BrandsApiController;
 
 
 
@@ -84,6 +85,35 @@ Route::get('/branches/{id}', [BranchesApiController::class, 'show']);
 Route::put('/branches/{id}', [BranchesApiController::class, 'update']);
 // delete branch
 Route::delete('/branches/{id}', [BranchesApiController::class, 'destroy']);
+
+
+// branches
+// ..................................................................
+
+// add branch
+Route::post('/branches/create', [BranchesApiController::class, 'store']);
+// all branch
+Route::get('/branches', [BranchesApiController::class, 'index']);
+// single branch
+Route::get('/branches/{id}', [BranchesApiController::class, 'show']);
+// update branch
+Route::put('/branches/{id}', [BranchesApiController::class, 'update']);
+// delete branch
+Route::delete('/branches/{id}', [BranchesApiController::class, 'destroy']);
+// branches
+// ..................................................................
+
+// add brand
+Route::post('/brands/create', [BrandsApiController::class, 'store']);
+// all brand
+Route::get('/brands', [BrandsApiController::class, 'index']);
+// single brand
+Route::get('/brands/{id}', [BrandsApiController::class, 'show']);
+// update brand
+Route::put('/brands/{id}', [BrandsApiController::class, 'update']);
+// delete brand
+Route::delete('/brands/{id}', [BrandsApiController::class, 'destroy']);
+
 
 
 
