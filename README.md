@@ -24,8 +24,9 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
   - Manage  Categories
   - Add Product
   - Manage Products
-- Clients
+
 - Suppliers
+- Clients
 - Sales ( should be done later , after expenses, debtors, purchases, calculator)
 
 

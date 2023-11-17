@@ -10,6 +10,8 @@ use App\Http\Controllers\Api\v1\Branches\BranchesApiController;
 use App\Http\Controllers\Api\v1\Brands\BrandsApiController;
 use App\Http\Controllers\Api\v1\Units\UnitsApiController;
 use App\Http\Controllers\Api\v1\Products\ProductsApiController;
+use App\Http\Controllers\Api\v1\Suppliers\SuppliersApiController;
+
 
 
 
@@ -147,6 +149,20 @@ Route::get('/products/{id}', [ProductsApiController::class, 'show']);
 Route::put('/products/{id}', [ProductsApiController::class, 'update']);
 // delete product
 Route::delete('/products/{id}', [ProductsApiController::class, 'destroy']);
+
+// suppliers
+// ..................................................................
+// add supplier
+Route::post('/suppliers/create', [SuppliersApiController::class, 'store']);
+// all supplier
+Route::get('/suppliers', [SuppliersApiController::class, 'index']);
+// single supplier
+Route::get('/suppliers/{id}', [SuppliersApiController::class, 'show']);
+// update supplier
+Route::put('/suppliers/{id}', [SuppliersApiController::class, 'update']);
+// delete supplier
+Route::delete('/suppliers/{id}', [SuppliersApiController::class, 'destroy']);
+
 
 
 

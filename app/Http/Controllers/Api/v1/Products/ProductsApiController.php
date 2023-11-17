@@ -59,7 +59,7 @@ class ProductsApiController extends Controller
     public function store(Request $request)
     {
 
-         // validate data fields
+       // validate data fields
        $validatedData = $request->validate([
 
         'product_code' => 'nullable',
