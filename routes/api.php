@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\v1\Customers\CustomersApiController;
 use App\Http\Controllers\Api\v1\ProductCategories\ProductCategoriesApiController;
 use App\Http\Controllers\Api\v1\ParentProductCategories\ParentProductCategoriesApiController;
+use App\Http\Controllers\Api\v1\Branches\BranchesApiController;
+
 
 
 /*
@@ -68,6 +70,21 @@ Route::get('/product_categories/{id}', [ProductCategoriesApiController::class, '
 Route::put('/product_categories/{id}', [ProductCategoriesApiController::class, 'update']);
 // delete product category
 Route::delete('/product_categories/{id}', [ProductCategoriesApiController::class, 'destroy']);
+
+// branches
+// ..................................................................
+
+// add branch
+Route::post('/branches/create', [BranchesApiController::class, 'store']);
+// all branch
+Route::get('/branches', [BranchesApiController::class, 'index']);
+// single branch
+Route::get('/branches/{id}', [BranchesApiController::class, 'show']);
+// update branch
+Route::put('/branches/{id}', [BranchesApiController::class, 'update']);
+// delete branch
+Route::delete('/branches/{id}', [BranchesApiController::class, 'destroy']);
+
 
 
 
