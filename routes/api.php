@@ -9,6 +9,8 @@ use App\Http\Controllers\Api\v1\ParentProductCategories\ParentProductCategoriesA
 use App\Http\Controllers\Api\v1\Branches\BranchesApiController;
 use App\Http\Controllers\Api\v1\Brands\BrandsApiController;
 use App\Http\Controllers\Api\v1\Units\UnitsApiController;
+use App\Http\Controllers\Api\v1\Products\ProductsApiController;
+
 
 
 
@@ -102,7 +104,9 @@ Route::get('/branches/{id}', [BranchesApiController::class, 'show']);
 Route::put('/branches/{id}', [BranchesApiController::class, 'update']);
 // delete branch
 Route::delete('/branches/{id}', [BranchesApiController::class, 'destroy']);
-// branches
+
+
+// brands
 // ..................................................................
 
 // add brand
@@ -116,16 +120,34 @@ Route::put('/brands/{id}', [BrandsApiController::class, 'update']);
 // delete brand
 Route::delete('/brands/{id}', [BrandsApiController::class, 'destroy']);
 
-// add unit 
+// units
+// ..................................................................
+
+// add unit
 Route::post('/units/create', [UnitsApiController::class, 'store']);
-// all unit 
+// all unit
 Route::get('/units', [UnitsApiController::class, 'index']);
-// single unit  
+// single unit
 Route::get('/units/{id}', [UnitsApiController::class, 'show']);
-// update unit  
+// update unit
 Route::put('/units/{id}', [UnitsApiController::class, 'update']);
-// delete unit  
+// delete unit
 Route::delete('/units/{id}', [UnitsApiController::class, 'destroy']);
+
+
+// products
+// ..................................................................
+// add product
+Route::post('/products/create', [ProductsApiController::class, 'store']);
+// all product
+Route::get('/products', [ProductsApiController::class, 'index']);
+// single product
+Route::get('/products/{id}', [ProductsApiController::class, 'show']);
+// update product
+Route::put('/products/{id}', [ProductsApiController::class, 'update']);
+// delete product
+Route::delete('/products/{id}', [ProductsApiController::class, 'destroy']);
+
 
 
 

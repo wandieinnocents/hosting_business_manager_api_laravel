@@ -15,22 +15,22 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('product_code', 255);
-            $table->unsignedBigInteger('supplier_id');
-            $table->unsignedBigInteger('branch_id');
-			$table->unsignedBigInteger('product_brand_id');
-			$table->unsignedBigInteger('product_parent_category_id');
-			$table->unsignedBigInteger('product_category_id');
-            $table->unsignedBigInteger('product_unit_id');
-			$table->date('product_created_date');
-			$table->date('product_expiry_date');
+            $table->string('product_code', 255)->nullable();
+            $table->unsignedBigInteger('supplier_id')->nullable();
+            $table->unsignedBigInteger('branch_id')->nullable();
+			$table->unsignedBigInteger('product_brand_id')->nullable();
+			$table->unsignedBigInteger('product_parent_category_id')->nullable();
+			$table->unsignedBigInteger('product_category_id')->nullable();
+            $table->unsignedBigInteger('product_unit_id')->nullable();
+			$table->date('product_created_date')->nullable();
+			$table->date('product_expiry_date')->nullable();
 			$table->string('product_name', 255);
-			$table->integer('product_stock_quantity');
-			$table->integer('product_cost_price');
-			$table->integer('product_selling_price');
-			$table->enum('product_status', array('active', 'disabled'));
-			$table->text('product_description');
-			$table->text('product_image');
+			$table->integer('product_stock_quantity')->nullable();
+			$table->integer('product_cost_price')->nullable();
+			$table->integer('product_selling_price')->nullable();
+			$table->enum('product_status', array('active', 'disabled'))->nullable();
+			$table->text('product_description')->nullable();
+			$table->text('product_image')->nullable();
             $table->foreign('supplier_id')->references('id')->on('suppliers');
             $table->foreign('branch_id')->references('id')->on('branches');
             $table->foreign('product_brand_id')->references('id')->on('brands');
