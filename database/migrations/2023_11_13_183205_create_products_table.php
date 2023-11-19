@@ -31,12 +31,12 @@ return new class extends Migration
 			$table->enum('product_status', array('active', 'disabled'))->nullable();
 			$table->text('product_description')->nullable();
 			$table->text('product_image')->nullable();
-            $table->foreign('supplier_id')->references('id')->on('suppliers');
-            $table->foreign('branch_id')->references('id')->on('branches');
-            $table->foreign('product_brand_id')->references('id')->on('brands');
-            $table->foreign('product_parent_category_id')->references('id')->on('parent_product_categories');
-            $table->foreign('product_category_id')->references('id')->on('product_categories');
-            $table->foreign('product_unit_id')->references('id')->on('units');
+            $table->foreign('supplier_id')->references('id')->on('suppliers')->onDelete('cascade');
+            $table->foreign('branch_id')->references('id')->on('branches')->onDelete('cascade');
+            $table->foreign('product_brand_id')->references('id')->on('brands')->onDelete('cascade');
+            $table->foreign('product_parent_category_id')->references('id')->on('parent_product_categories')->onDelete('cascade');
+            $table->foreign('product_category_id')->references('id')->on('product_categories')->onDelete('cascade');
+            $table->foreign('product_unit_id')->references('id')->on('units')->onDelete('cascade');
 
             $table->timestamps();
         });

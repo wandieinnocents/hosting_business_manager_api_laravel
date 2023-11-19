@@ -27,9 +27,9 @@ return new class extends Migration
 			$table->enum('sale_status', array('pending', 'processing', 'completed'));
 			$table->text('sale_notes');
 			$table->enum('sale_payment_method', array('bank_transfer', 'mobile_money', 'credit_card', 'cash'));
-            $table->foreign('customer_id')->references('id')->on('customers');
-            $table->foreign('branch_id')->references('id')->on('branches');
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
+            $table->foreign('branch_id')->references('id')->on('branches')->onDelete('cascade');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -21,7 +21,7 @@ return new class extends Migration
 			$table->text('product_category_description', 255)->nullable();
 			$table->enum('product_category_status', array('active', 'disabled'))->nullable();
 			$table->text('product_category_image')->nullable();
-            $table->foreign('parent_product_category_id')->references('id')->on('parent_product_categories');
+            $table->foreign('parent_product_category_id')->references('id')->on('parent_product_categories')->onDelete('cascade');
             $table->timestamps();
 
         });
