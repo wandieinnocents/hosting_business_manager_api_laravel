@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('product_categories', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('parent_product_category_id');
+            $table->unsignedBigInteger('parent_product_category_id')->nullable();
             $table->string('product_category_code', 255)->nullable();
 			$table->text('product_category_name', 255);
 			$table->text('product_category_description', 255)->nullable();

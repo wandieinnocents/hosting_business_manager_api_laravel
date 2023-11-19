@@ -63,7 +63,7 @@ class ProductCategoriesApiController extends Controller
 
         // validate data fields
         $validatedData = $request->validate([
-            'parent_product_category_id' => 'required',
+            'parent_product_category_id' => 'nullable',
             'product_category_code' => 'nullable',
             'product_category_name' => 'required',
             'product_category_description' => 'nullable',
