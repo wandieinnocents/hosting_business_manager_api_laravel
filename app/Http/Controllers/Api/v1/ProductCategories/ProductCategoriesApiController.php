@@ -17,7 +17,9 @@ class ProductCategoriesApiController extends Controller
     {
 
         if(ProductCategory::count() > 0){
-            $product_categories = ProductCategory::orderBy('id', 'desc')->get();;
+            // $product_categories = ProductCategory::orderBy('id', 'desc')->get();
+            $product_categories = ProductCategory::with('parent_product_category')->get();
+            // dd($product_categories);
             $count_product_categories = ProductCategory::count();
 
             // return
@@ -120,13 +122,15 @@ class ProductCategoriesApiController extends Controller
     {
        // find product_category id
        if(ProductCategory::where("id", $id)->exists()){
-        $product_category = ProductCategory::find($id);
+        $product_category = ProductCategory::with('parent_product_category','products')->find($id);
+        // $product_category = ProductCategory::with('parent_product_category')->get();
 
         // return response
         return [
             "status" => 200,
             "message" => "Product Category Retrieved successfully",
-            "data" =>$product_category
+            "data" => $product_category->load('parent_product_category')
+
         ];
     }
 

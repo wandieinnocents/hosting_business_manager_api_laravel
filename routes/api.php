@@ -74,7 +74,7 @@ Route::get('/product_categories', [ProductCategoriesApiController::class, 'index
 // single product category
 Route::get('/product_categories/{id}', [ProductCategoriesApiController::class, 'show']);
 // update product category
-Route::put('/product_categories/{id}', [ProductCategoriesApiController::class, 'update']);
+Route::post('/product_categories/{id}', [ProductCategoriesApiController::class, 'update']);
 // delete product category
 Route::delete('/product_categories/{id}', [ProductCategoriesApiController::class, 'destroy']);
 
