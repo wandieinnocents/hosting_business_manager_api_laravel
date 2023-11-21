@@ -65,12 +65,12 @@ class ProductCategoriesApiController extends Controller
 
         // validate data fields
         $validatedData = $request->validate([
-            'parent_product_category_id' => 'nullable',
+            'parent_product_category_id' => 'required',
             'product_category_code' => 'nullable',
             'product_category_name' => 'required',
             'product_category_description' => 'nullable',
             'product_category_status' => 'nullable',
-            'product_category_image' => 'nullable',
+            'product_category_image' => 'nullable|mimes:doc,pdf,docx,zip,jpeg,jpg,csv,txt,xlx,xls,png',
 
         ]);
 
@@ -130,7 +130,6 @@ class ProductCategoriesApiController extends Controller
             "status" => 200,
             "message" => "Product Category Retrieved successfully",
             "data" => $product_category->load('parent_product_category')
-
         ];
     }
 
