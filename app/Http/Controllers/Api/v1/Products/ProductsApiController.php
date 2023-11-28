@@ -16,7 +16,8 @@ class ProductsApiController extends Controller
     public function index()
     {
         if(Product::count() > 0){
-            $products = Product::all();
+            // $products = Product::all();
+            $products = Product::with('branch','unit','brand','parent_product_category','product_category','supplier','sales')->get();
             $count_products = Product::count();
 
             // return
@@ -134,7 +135,8 @@ class ProductsApiController extends Controller
     {
         // find branch id
        if(Product::where("id", $id)->exists()){
-        $product = Product::find($id);
+        // $product = Product::find($id);
+        $product = Product::with('branch','unit','brand','parent_product_category','product_category','supplier','sales')->find($id);
 
         // return response
         return [
