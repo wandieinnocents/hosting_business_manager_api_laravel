@@ -24,6 +24,7 @@ return new class extends Migration
 			$table->string('supplier_city', 255)->nullable();
 			$table->string('supplier_country', 255)->nullable();
 			$table->text('supplier_organization')->nullable();
+            $table->text('supplier_image')->nullable();
 			$table->enum('supplier_status', array('active', 'inactive'))->nullable();
 			$table->text('supplier_description')->nullable();
 			$table->text('supplier_website_url')->nullable();

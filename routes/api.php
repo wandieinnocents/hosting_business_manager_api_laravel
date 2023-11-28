@@ -159,7 +159,7 @@ Route::get('/suppliers', [SuppliersApiController::class, 'index']);
 // single supplier
 Route::get('/suppliers/{id}', [SuppliersApiController::class, 'show']);
 // update supplier
-Route::put('/suppliers/{id}', [SuppliersApiController::class, 'update']);
+Route::post('/suppliers/{id}', [SuppliersApiController::class, 'update']);
 // delete supplier
 Route::delete('/suppliers/{id}', [SuppliersApiController::class, 'destroy']);
 
