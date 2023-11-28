@@ -64,8 +64,9 @@ class BrandsApiController extends Controller
         'brand_name' => 'required',
         'brand_register_date' => 'nullable',
         'brand_status' => 'nullable',
-        'brand_image' => 'nullable',
-        'brand_description' => 'nullable|mimes:doc,pdf,docx,zip,jpeg,jpg,webp,tif,csv,txt,xlx,xls,png',
+        'brand_description' => 'nullable',
+        // 'brand_image' => 'nullable',
+        'brand_image' => 'nullable|mimes:doc,pdf,docx,zip,jpeg,jpg,csv,txt,xlx,xls,png',
 
     ]);
 
@@ -75,6 +76,8 @@ class BrandsApiController extends Controller
     $brand->brand_register_date    = $request->brand_register_date;
     $brand->brand_status    = $request->brand_status;
     $brand->brand_description    = $request->brand_description;
+
+
 
 
     // brand_image

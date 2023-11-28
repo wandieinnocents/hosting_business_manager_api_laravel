@@ -103,7 +103,7 @@ Route::get('/branches', [BranchesApiController::class, 'index']);
 // single branch
 Route::get('/branches/{id}', [BranchesApiController::class, 'show']);
 // update branch
-Route::put('/branches/{id}', [BranchesApiController::class, 'update']);
+Route::post('/branches/{id}', [BranchesApiController::class, 'update']);
 // delete branch
 Route::delete('/branches/{id}', [BranchesApiController::class, 'destroy']);
 
@@ -118,7 +118,7 @@ Route::get('/brands', [BrandsApiController::class, 'index']);
 // single brand
 Route::get('/brands/{id}', [BrandsApiController::class, 'show']);
 // update brand
-Route::put('/brands/{id}', [BrandsApiController::class, 'update']);
+Route::post('/brands/{id}', [BrandsApiController::class, 'update']);
 // delete brand
 Route::delete('/brands/{id}', [BrandsApiController::class, 'destroy']);
 
@@ -132,7 +132,7 @@ Route::get('/units', [UnitsApiController::class, 'index']);
 // single unit
 Route::get('/units/{id}', [UnitsApiController::class, 'show']);
 // update unit
-Route::put('/units/{id}', [UnitsApiController::class, 'update']);
+Route::post('/units/{id}', [UnitsApiController::class, 'update']);
 // delete unit
 Route::delete('/units/{id}', [UnitsApiController::class, 'destroy']);
 

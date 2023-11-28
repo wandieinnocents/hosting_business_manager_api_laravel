@@ -20,7 +20,7 @@ return new class extends Migration
 			$table->date('brand_register_date')->nullable();
 			$table->enum('brand_status', array('active', 'disabled'))->nullable();
 			$table->text('brand_image')->nullable();
-			$table->text('brand_description', 255)->nullable();
+			$table->text('brand_description')->nullable();
             $table->timestamps();
 
 

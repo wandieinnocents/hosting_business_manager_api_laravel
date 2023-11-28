@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('parent_product_category_id')->default(1);
             $table->string('product_category_code', 255)->nullable();
 			$table->text('product_category_name', 255);
-			$table->text('product_category_description', 255)->nullable();
+			$table->text('product_category_description')->nullable();
 			$table->enum('product_category_status', array('active', 'disabled'))->nullable()->default('active');
 			$table->text('product_category_image')->nullable();
             $table->foreign('parent_product_category_id')->references('id')->on('parent_product_categories')->onDelete('cascade');

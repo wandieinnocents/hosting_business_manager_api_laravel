@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('branch_code', 255)->nullable();
             $table->string('branch_name', 255);
-            $table->string('branch_address', 255)->nullable();
+            $table->text('branch_address')->nullable();
             $table->timestamps();
         });
     }

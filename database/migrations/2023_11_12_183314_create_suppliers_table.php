@@ -16,16 +16,17 @@ return new class extends Migration
         Schema::create('suppliers', function (Blueprint $table) {
             $table->id();
             $table->string('supplier_code', 255)->nullable();
-			$table->string('supplier_name', 255);
+			$table->text('supplier_name');
+            $table->date('supplier_register_date')->nullable();
 			$table->string('supplier_email', 255)->nullable();
 			$table->string('supplier_phone', 255);
-			$table->string('supplier_address', 255)->nullable();
+			$table->text('supplier_address')->nullable();
 			$table->string('supplier_city', 255)->nullable();
 			$table->string('supplier_country', 255)->nullable();
-			$table->string('supplier_organization', 255)->nullable();
+			$table->text('supplier_organization')->nullable();
 			$table->enum('supplier_status', array('active', 'inactive'))->nullable();
-			$table->string('supplier_description', 255)->nullable();
-			$table->string('supplier_website_url', 255)->nullable();
+			$table->text('supplier_description')->nullable();
+			$table->text('supplier_website_url')->nullable();
             $table->timestamps();
         });
     }

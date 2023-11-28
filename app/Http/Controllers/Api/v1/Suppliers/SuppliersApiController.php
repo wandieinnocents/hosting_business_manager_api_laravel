@@ -41,6 +41,7 @@ class SuppliersApiController extends Controller
 
         'supplier_code' => 'nullable',
         'supplier_name' => 'required',
+        'supplier_register_date' => 'nullable',
         'supplier_email' => 'nullable',
         'supplier_phone' => 'required',
         'supplier_address' => 'nullable',
