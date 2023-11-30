@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('product_code', 255)->nullable();
             $table->unsignedBigInteger('supplier_id')->nullable();
             $table->unsignedBigInteger('branch_id')->nullable();
-			$table->unsignedBigInteger('product_brand_id')->nullable();
-			$table->unsignedBigInteger('product_parent_category_id')->nullable();
+			$table->unsignedBigInteger('brand_id')->nullable();
+			$table->unsignedBigInteger('parent_product_category_id')->nullable();
 			$table->unsignedBigInteger('product_category_id')->nullable();
-            $table->unsignedBigInteger('product_unit_id')->nullable();
+            $table->unsignedBigInteger('unit_id')->nullable();
 			$table->date('product_created_date')->nullable();
 			$table->date('product_expiry_date')->nullable();
 			$table->string('product_name', 255);
@@ -31,12 +31,12 @@ return new class extends Migration
 			$table->enum('product_status', array('active', 'disabled'))->nullable();
 			$table->text('product_description')->nullable();
 			$table->text('product_image')->nullable();
-            $table->foreign('supplier_id')->references('id')->on('suppliers')->onDelete('set null');
-            $table->foreign('branch_id')->references('id')->on('branches')->onDelete('set null');
-            $table->foreign('product_brand_id')->references('id')->on('brands')->onDelete('set null');
-            $table->foreign('product_parent_category_id')->references('id')->on('parent_product_categories')->onDelete('cascade');
+            $table->foreign('supplier_id')->references('id')->on('suppliers')->onDelete('cascade');
+            $table->foreign('branch_id')->references('id')->on('branches')->onDelete('cascade');
+            $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
+            $table->foreign('parent_product_category_id')->references('id')->on('parent_product_categories')->onDelete('cascade');
             $table->foreign('product_category_id')->references('id')->on('product_categories')->onDelete('cascade');
-            $table->foreign('product_unit_id')->references('id')->on('units')->onDelete('cascade');
+            $table->foreign('unit_id')->references('id')->on('units')->onDelete('cascade');
 
             $table->timestamps();
         });

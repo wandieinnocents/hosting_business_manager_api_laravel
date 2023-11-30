@@ -10,6 +10,8 @@ use App\Models\ParentProductCategory;
 use App\Models\ProductCategory;
 use App\Models\Supplier;
 use App\Models\Sale;
+use App\Models\Unit;
+
 
 
 
@@ -23,10 +25,10 @@ class Product extends Model
         'product_code',
         'supplier_id',
         'branch_id',
-        'product_brand_id',
-        'product_parent_category_id',
+        'brand_id',
+        'parent_product_category_id',
         'product_category_id',
-        'product_unit_id',
+        'unit_id',
         'product_created_date',
         'product_expiry_date',
         'product_name',
@@ -51,6 +53,7 @@ class Product extends Model
         return $this->belongsTo(Unit::class);
     }
 
+
      // product belongs to a brand
      public function brand()
      {
@@ -58,10 +61,13 @@ class Product extends Model
      }
 
       // product belongs to a parent product category
-      public function parent_product_category()
-      {
-          return $this->belongsTo(ParentProductCategory::class);
-      }
+        public function parent_product_category(){
+
+            return $this->belongsTo(ParentProductCategory::class);
+
+        }
+
+
 
         // product belongs to a  product category
         public function product_category()
@@ -75,7 +81,7 @@ class Product extends Model
              return $this->belongsTo(Supplier::class);
          }
 
-          // product has many sales
+        // product has many sales
         public function sales()
         {
             return $this->belongsTo(Sale::class);

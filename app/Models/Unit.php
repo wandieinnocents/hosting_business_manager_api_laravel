@@ -16,8 +16,8 @@ class Unit extends Model
     ];
 
      // unit has many products
-     public function products()
-     {
-         return $this->hasMany(Product::class);
-     }
+       public function products()
+       {
+           return $this->hasMany(Product::class);
+       }
 }

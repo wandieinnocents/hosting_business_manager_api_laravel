@@ -17,7 +17,8 @@ class ProductsApiController extends Controller
     {
         if(Product::count() > 0){
             // $products = Product::all();
-            $products = Product::with('branch','unit','brand','parent_product_category','product_category','supplier','sales')->get();
+            // $products = Product::with('parent_product_category')->get();
+            $products = Product::with('parent_product_category','branch','unit','brand','product_category','supplier','sales')->get();
             $count_products = Product::count();
 
             // return
@@ -65,10 +66,11 @@ class ProductsApiController extends Controller
 
         'product_code' => 'nullable',
         'supplier_id' => 'nullable',
-        'product_brand_id' => 'nullable',
-        'product_parent_category_id' => 'nullable',
+        'brand_id' => 'nullable',
+        'branch_id' => 'nullable',
+        'parent_product_category_id' => 'nullable',
         'product_category_id' => 'nullable',
-        'product_unit_id' => 'nullable',
+        'unit_id' => 'nullable',
         'product_created_date' => 'nullable',
         'product_expiry_date' => 'nullable',
         'product_name' => 'required',
@@ -84,10 +86,11 @@ class ProductsApiController extends Controller
         // create branch
         $product = new Product();
         $product->supplier_id    = $request->supplier_id;
-        $product->product_brand_id     = $request->product_brand_id;
-        $product->product_parent_category_id     = $request->product_parent_category_id;
+        $product->brand_id     = $request->brand_id;
+        $product->branch_id     = $request->branch_id;
+        $product->parent_product_category_id     = $request->parent_product_category_id;
         $product->product_category_id     = $request->product_category_id;
-        $product->product_unit_id     = $request->product_unit_id;
+        $product->unit_id     = $request->unit_id;
         $product->product_created_date     = $request->product_created_date;
         $product->product_expiry_date     = $request->product_expiry_date;
         $product->product_name     = $request->product_name;
@@ -104,7 +107,7 @@ class ProductsApiController extends Controller
                 $extension          = $file->getClientOriginalExtension();  //get image extension
                 $filename           = time() . '.' .$extension;
                 $file->move('uploads/product_images/',$filename);
-                $brand->product_image   = url('uploads' . '/product_images/'  . $filename);
+                $product->product_image   = url('uploads' . '/product_images/'  . $filename);
             }
 
 
@@ -182,10 +185,11 @@ class ProductsApiController extends Controller
         if(Product::where("id", $id)->exists()){
             $product   = Product::find($id);
             $product->supplier_id    = $request->supplier_id;
-            $product->product_brand_id     = $request->product_brand_id;
-            $product->product_parent_category_id     = $request->product_parent_category_id;
+            $product->brand_id     = $request->brand_id;
+            $product->branch_id     = $request->branch_id;
+            $product->parent_product_category_id     = $request->parent_product_category_id;
             $product->product_category_id     = $request->product_category_id;
-            $product->product_unit_id     = $request->product_unit_id;
+            $product->unit_id     = $request->unit_id;
             $product->product_created_date     = $request->product_created_date;
             $product->product_expiry_date     = $request->product_expiry_date;
             $product->product_name     = $request->product_name;
@@ -202,7 +206,7 @@ class ProductsApiController extends Controller
                     $extension          = $file->getClientOriginalExtension();  //get image extension
                     $filename           = time() . '.' .$extension;
                     $file->move('uploads/product_images/',$filename);
-                    $brand->product_image   = url('uploads' . '/product_images/'  . $filename);
+                    $product->product_image   = url('uploads' . '/product_images/'  . $filename);
                 }
 
 

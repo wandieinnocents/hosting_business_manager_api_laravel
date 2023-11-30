@@ -25,10 +25,11 @@ class ParentProductCategory extends Model
      }
 
       // a parent product category has many products
-      public function products()
-      {
-          return $this->hasMany(Product::class);
-      }
+    public function products(){
+
+        return $this->hasMany(Product::class);
+
+    }
 
 
 
